@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="card-header" style="text-align:center">
+      <b>WEL COME TO STUDENT CURD OPERATION</b>
+  </div>
+  <div class="card-body">
+      <form [formGroup]="studentForm" (ngSubmit)="addStudent(studentForm.value)">
+          <div class="row">
+              <div class="form-group col-sm-3">
+                  <label for="company">Student ID</label>
+                  <input type="text" class="form-control" formControlName="stuid" placeholder="Enter Student Name" >
+                  </div>
+                  <div class="form-group col-sm-3">
+                      <label for="company">Student Name</label>
+                      <input type="text" class="form-control" formControlName="stuname" placeholder="Enter Student Name" >
+                      </div>
+                      <div class="form-group col-sm-3">
+                        <label for="company">Student Age</label>
+                        <input type="text" class="form-control" formControlName="stuage" placeholder="Enter Student Age" >
+                        </div>
+                        <div class="form-group col-sm-3">
+                          <label for="company">Student Class</label>
+                          <input type="text" class="form-control" formControlName="stucls" placeholder="Enter Student Class" >
+                          </div>
+                      <div class="form-group col-sm-3">
+                          <label for="company">Father Name</label>
+                          <input type="text" class="form-control" formControlName="stufatnam" placeholder="Enter Father Name" >
+                          </div>
+                          <div class="form-group col-sm-3">
+                              <label for="company">Mother Name</label>
+                              <input type="text" class="form-control" formControlName="stumotnam" placeholder="Enter Mother Name" >
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="form-group col-sm-3">
+                                  <button type="submit" class="btn btn-primary" >Add Student</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+                  <div class="card-footer">
+                      <div class="col-lg-12 table-responsive">
+                          <table class="table table-striped">
+                              <thead>
+                                  <tr>
+                                      <th>Student ID</th>
+                                      <th>Student Name</th>
+                                      <th>Student Age</th>
+                                      <th>Student Class</th>
+                                      <th>Father Name</th>
+                                      <th>Mother Name</th>
+
+                                      <th></th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let Student of allStudent|async">
+                                      <td>{{Student.stuid}}</td>
+                                      <td>{{Student.stuname}}</td>
+                                      <td>{{Student.stuage}}</td>
+                                      <td>{{Student.stucls}}</td>
+                                      <td>{{Student.stufatnam}}</td>
+                                      <td>{{Student.stumotnam}}</td>
+                                      <td>
+                                          <button type="button" class="btn btn-primary mr-1" (click)="editStudent(Student.stuid)">Edit</button>
+                                          <button type="button" class="btn btn-danger mr-1" (click)="removeStudent(Student.stuid)">Delete</button>
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
